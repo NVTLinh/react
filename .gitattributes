@@ -1,0 +1,18 @@
+# Thiết lập hành vi mặc định, trong trường hợp người dùng không có core.autocrlf được đặt.
+* text=auto
+
+# Khai báo rõ ràng các tệp văn bản bạn muốn luôn được chuẩn hóa và chuyển đổi sang kết thúc dòng gốc khi checkout.
+*.c text
+*.h text
+*.cpp text
+*.hpp text
+*.java text
+*.js text
+*.jsx text
+*.css text
+*.html text
+*.md text
+*.json text
+
+# Khai báo các tệp luôn có kết thúc dòng LF khi checkout.
+*.sh text eol=lf
