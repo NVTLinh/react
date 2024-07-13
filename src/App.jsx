@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './App.css'
 import Avatar from './component/avata'
 import FormLogin from './component/LoginForm'
@@ -6,31 +6,15 @@ import HomePage from './pages/HomePage'
 import Shop from './pages/Shop'
 import Header from './component/Header'
 import TodoList from './pages/TudoList'
+import { AuthContext } from './contexts/AuthContext.jsx'
 
 import { Route, Routes, } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  const [user, setUser] = useState({
-    name: 'Linh',
-    age: 21
-  });
+  const authContext = useContext(AuthContext);
+  console.log(authContext);
 
-  const increase = () => {
-    setCount(count + 1)
-  }
-
-  const decrease = () => {
-    setCount(count - 1)
-  }
-
-  const updateUserName = () => {
-
-    setUser({
-      ...user, name: 'NVTLinh'
-    })
-  }
   return (
     <>
 
