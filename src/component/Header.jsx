@@ -1,22 +1,31 @@
 import { Link } from "react-router-dom";
 import { useContext } from 'react'
 import { AuthContext } from "../contexts/AuthContext";
+import { CardContext } from "../contexts/cardContext";
+import anhgiohang from '../assets/anh/anhgiohang.jpg';
+import styles from '../assets/styles/styles.module.css'
 
 export default function Header() {
+
+    const cardContext = useContext(CardContext)
 
     const authContext = useContext(AuthContext);
     console.log(authContext);
 
     const handleFakeLogin = () => {
-        authContext.login({name: 'Linh'})
+        authContext.login({ name: 'Linh' })
     }
 
     const handleFakeLogout = () => {
         authContext.logout()
     }
 
+    const countProductsInCart = () => {
+        return cardContext.cardProduct.length;
+    }
+
     return (
-        <div>
+        <div className="container-fluid d-flex justify-content-between">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container">
                     <Link to={'/'} className="navbar-brand">Navbar</Link>
@@ -33,18 +42,24 @@ export default function Header() {
                             </li>
                         </ul>
                         <div>
-                            {authContext.user ?(
+                            {authContext.user ? (
                                 <div>
                                     <p>Xin chào, {authContext.user.name}</p>
                                     <button className="btn btn-outline-primary" onClick={handleFakeLogout}>Đăng xuất</button>
                                 </div>
                             ) : (<button className="btn btn-outline-primary" onClick={handleFakeLogin}>
                                 Đăng nhập
-                            </button>) }
+                            </button>)}
                         </div>
                     </div>
                 </div>
             </nav>
+            <div>
+                <Link to={'/gio-hang'} className="nav-link active">
+                    <span className="badge bg-primary">{countProductsInCart()}</span>
+                    <img className={styles.anh} src={anhgiohang} alt="" />
+                </Link>
+            </div>
         </div>
     )
 }

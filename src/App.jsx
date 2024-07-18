@@ -7,6 +7,7 @@ import Shop from './pages/Shop'
 import Header from './component/Header'
 import TodoList from './pages/TudoList'
 import { AuthContext } from './contexts/AuthContext.jsx'
+import GioHang from './pages/GioHang.jsx'
 
 import { Route, Routes, } from 'react-router-dom';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/todo' element={<TodoList />} />
+        <Route path='/gio-hang' element={<GioHang />} />
       </Routes>
 
     </>
