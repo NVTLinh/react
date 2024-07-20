@@ -25,6 +25,7 @@ function App() {
         <Route path='/shop' element={<Shop />} />
         <Route path='/todo' element={<TodoList />} />
         <Route path='/gio-hang' element={<GioHang />} />
+        <Route path='/login' element={<FormLogin />} />
       </Routes>
 
     </>
