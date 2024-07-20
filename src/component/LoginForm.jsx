@@ -27,7 +27,7 @@ export default function FormLogin(props) {
 
         setErrors({
             ...errors,
-            [name]: value ? '' : 'This field is required',
+            [name]: value ? '' : 'Không hợp lệ',
         });
     };
 
@@ -37,8 +37,8 @@ export default function FormLogin(props) {
 
     const validateForm = () => {
         const newErrors = {
-            email: loginform.email ? '' : 'This field is required',
-            password: loginform.password ? '' : 'This field is required',
+            email: loginform.email ? '' : 'Email không hợp lệ',
+            password: loginform.password ? '' : 'Password không hợp lệ',
         };
         setErrors(newErrors);
         return !newErrors.email && !newErrors.password;
